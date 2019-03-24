@@ -13,12 +13,14 @@ or, if we need to supervise it:
 mix new --sup my_new_supervised_project
 ```
 
-
-## Launch the tests
+## Testify!
 
 ```elixir
-mix test
+- mix test
+- mix credo (check the choerence)
+- mix dialyzer (check the type spec)
 ```
+onother important tool is the *Property Testing* (https://pragprog.com/book/fhproper/property-based-testing-with-proper-erlang-and-elixir)
 
 ## Important libs to add in a project
 
@@ -56,5 +58,3 @@ https://www.youtube.com/watch?v=7erJ1DV_Tlo
 
 - Programming Phoenix
 - Metaprogramming Elixir
-
-
