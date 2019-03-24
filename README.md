@@ -45,5 +45,16 @@ https://www.youtube.com/playlist?list=PLZZkJeUxu6QkFsqar5pIqaLoqVnBycDoU
 - Actor Model:
 https://www.youtube.com/watch?v=7erJ1DV_Tlo
 
-- PlayCards
-https://www.elixircards.co.uk/
+### Books
+
+- Programming Elixir (by PragDave)
+- Elixir in Action
+- The Little Elixir & OTP Guidebook
+- PlayCards: https://www.elixircards.co.uk/
+
+### Special Books
+
+- Programming Phoenix
+- Metaprogramming Elixir
+
+
