@@ -33,5 +33,21 @@ defmodule Day3KataEvilTest do
       assert Day3KataEvil.blacklist("You are a nice person, but not so nicer", ["nice", ""]) ==
                "You are a XXXX person, but not so XXXXr"
     end
+
+    test "long listed words" do
+      assert(
+        Day3KataEvil.blacklist("Such a nice day with a bright sun, makes me happy", [
+          "nice",
+          "pony",
+          "sun",
+          "light",
+          "fun",
+          "happy",
+          "funny",
+          "joy",
+          "others"
+        ]) == "Such a XXXX day with a bright XXX, makes me XXXXX"
+      )
+    end
   end
 end
