@@ -14,5 +14,10 @@ defmodule Day3KataEvilTest do
     test "works if we don't have a single blacklisted word" do
       assert Day3KataEvil.blacklist("You are a nice person", ["nice"]) == "You are a XXXX person"
     end
+
+    test "works if we don't have a single blacklisted word (but different)" do
+      assert Day3KataEvil.blacklist("You are a nice person", ["nicex"]) == "You are a nice person"
+    end
+
   end
 end
