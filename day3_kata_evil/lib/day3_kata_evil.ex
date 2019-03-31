@@ -4,6 +4,7 @@ defmodule Day3KataEvil do
 
   def blacklist(text, badwords) do
     badwords
+    |> Enum.reject(&(&1 == ""))
     |> Enum.reduce(text, fn badword, text ->
       anonymize(text, badword)
     end)
