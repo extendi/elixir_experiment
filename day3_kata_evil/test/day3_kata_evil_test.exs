@@ -21,7 +21,7 @@ defmodule Day3KataEvilTest do
 
     test "works if we don't have a single blacklisted word (repeated)" do
       assert Day3KataEvil.blacklist("You are a nice person, so nice!", ["nice"]) ==
-               "You are a XXXX person, so XXXX!"
+               "You are a XXXX person, so XXXXX"
     end
 
     test "works in case of multiple blacklisted words" do
@@ -31,10 +31,10 @@ defmodule Day3KataEvilTest do
 
     test "works in case of empty badwords" do
       assert Day3KataEvil.blacklist("You are a nice person, but not so nicer", ["nice", ""]) ==
-               "You are a XXXX person, but not so XXXXr"
+               "You are a XXXX person, but not so XXXXX"
     end
 
-    test "long listed words" do
+    test "works with long listed words" do
       assert(
         Day3KataEvil.blacklist("Such a nice day with a bright sun, makes me happy", [
           "nice",
@@ -48,6 +48,12 @@ defmodule Day3KataEvilTest do
           "others"
         ]) == "Such a XXXX day with a bright XXX, makes me XXXXX"
       )
+    end
+  end
+
+  describe "Replace blacklisted (prefix) words" do
+    test "blacklist the entire word in case of that word start with a blacklisted words" do
+      assert Day3KataEvil.blacklist("You are so friendly!", ["friend"]) == "You are so XXXXXXXXX"
     end
   end
 end

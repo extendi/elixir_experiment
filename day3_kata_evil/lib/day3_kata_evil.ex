@@ -14,7 +14,15 @@ defmodule Day3KataEvil do
 
   defp anonymize(text, badword) do
     text
-    |> String.replace(badword, make_x(badword))
+    |> String.split(~r{[\s,\,]}, include_captures: true)
+    |> Enum.map(fn token ->
+      if String.starts_with?(token, badword) do
+        make_x(token)
+      else
+        token
+      end
+    end)
+    |> Enum.join()
   end
 
   def make_x(s) do
