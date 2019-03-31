@@ -1,10 +1,12 @@
 defmodule Day3KataEvil do
-
-  @spec blacklist(String.t, [String.t]) :: String.t
+  @spec blacklist(String.t(), [String.t()]) :: String.t()
   def blacklist(text, []), do: text
 
-  def blacklist(text, [badword]) do
-    anonymize(text, badword)
+  def blacklist(text, badwords) do
+    badwords
+    |> Enum.reduce(text, fn badword, text ->
+      anonymize(text, badword)
+    end)
   end
 
   ##### PRIVATE #####
