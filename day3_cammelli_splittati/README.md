@@ -1,6 +1,6 @@
 # SplittingCamel
 
-**TODO: Add description**
+https://www.codewars.com/kata/586c3070b98de0a57000012e
 
 ## Installation
 
