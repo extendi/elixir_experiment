@@ -10,6 +10,7 @@ defmodule Day2Chat.Application do
     children = [
       # Starts a worker by calling: Day2Chat.Worker.start_link(arg)
       {Server.Chat, []},
+      {Registry, keys: :unique, name: Registry.Room},
       {DynamicSupervisor, strategy: :one_for_one, name: Day2Chat.RoomSup},
       {DynamicSupervisor, strategy: :one_for_one, name: Day2Chat.ClientSup}
     ]
