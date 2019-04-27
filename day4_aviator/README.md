@@ -19,3 +19,7 @@ Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_do
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at [https://hexdocs.pm/day4_aviator](https://hexdocs.pm/day4_aviator).
 
+## Setup the DB
+
+- mix ecto.create
+- mix ecto.migrate
