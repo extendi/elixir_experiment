@@ -1,8 +1,8 @@
 defmodule Day4Aviator.Fetcher do
-  alias Day4Aviator.{Client,Extractor}
+  alias Day4Aviator.{Client, Extractor}
 
   def flying_high(meters \\ 10_000) do
-    with {:ok, flights}  <- Client.get_flights do
+    with {:ok, flights} <- Client.get_flights() do
       Extractor.extract(flights, fn %{"geography" => %{"altitude" => altitude}} ->
         altitude > meters
       end)

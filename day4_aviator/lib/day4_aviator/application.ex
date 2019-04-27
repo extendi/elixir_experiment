@@ -11,7 +11,7 @@ defmodule Day4Aviator.Application do
     children = [
       # Starts a worker by calling: Day4Aviator.Worker.start_link(arg)
       # {Day4Aviator.Worker, arg}
-      {Day4Aviator.Flights.Repo, []},
+      {Day4Aviator.Flights.Repo, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

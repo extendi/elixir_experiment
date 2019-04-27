@@ -11,7 +11,7 @@ config :day4_aviator, Day4Aviator.Flights.Repo,
 config :day4_aviator, api_key: "fea522-148fac"
 
 config :day4_aviator,
-      ecto_repos: [Day4Aviator.Flights.Repo]
+  ecto_repos: [Day4Aviator.Flights.Repo]
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
