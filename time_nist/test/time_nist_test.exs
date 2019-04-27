@@ -2,7 +2,12 @@ defmodule TimeNistTest do
   use ExUnit.Case
   doctest TimeNist
 
-  test "greets the world" do
-    assert TimeNist.hello() == :world
+  it "the GenServer is Up & Running" do
+
   end
+
+  it "Get valid daytime" do
+
+  end
+
 end
