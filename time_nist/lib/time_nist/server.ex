@@ -5,25 +5,53 @@ defmodule TimeNist.Server do
   # - make a requet to the server every 7s (see handle_info)
   use GenServer
 
-  def start_link() do
-    # GenServer.start_link ...
+  @me __MODULE__
+  @target_server "time.nist.gov"
+
+  def start_link(_) do
+    GenServer.start_link(@me, @target_server, name: @me)
   end
 
   @impl true
-  def init() do
-    # ...
+  def init(target_server) do
+    refresh()
+    {:ok, %{daytime: get_daytime(target_server), server: target_server}}
   end
 
   ############ API ###############
 
-  @spec get_timedate() :: {:ok, String.t()} | {:error, any()}
-  def get_timedate() do
-    {:error, :unimplemented}
+  @spec daytime() :: {:ok, String.t()} | {:error, any()}
+  def daytime do
+    GenServer.call(@me, :daytime)
   end
 
   ########## CALLBACK ############
 
+  @impl true
+  def handle_call(:daytime, _from, %{daytime: daytime} = state) do
+    {:reply, daytime, state}
+  end
+
+  @impl true
+  def handle_info(:refresh, %{server: server} = state) do
+    refresh()
+    IO.puts "refresh"
+    {:noreply, %{state | daytime: get_daytime(server)}}
+  end
 
   ########### PRIVATE ############
 
+  defp refresh do
+    Process.send_after(self(), :refresh, 7_000_000)
+  end
+
+  @spec get_daytime(String.t()) :: String.t()
+  defp get_daytime(host) do
+    case TimeNist.request(host) do
+      {:ok, val} ->
+        val
+      _ ->
+        ""
+    end
+  end
 end
