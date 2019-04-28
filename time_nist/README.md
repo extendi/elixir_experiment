@@ -17,8 +17,6 @@ ottenere il DAYTIME corrente in formato stringa.
 - i test devono passare (mix test)
 - il dylizer è sempre di aiuto (mix dialyzer)
 
-Nota:
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
