@@ -1,9 +1,9 @@
-defmodule TimeNist.Server do
+defmodule TimeNist.FakeServer do
   use GenServer
 
   @me __MODULE__
 
-  def start_link() do
+  def start_link(_) do
     GenServer.start_link(@me, [])
   end
 

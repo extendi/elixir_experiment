@@ -10,7 +10,7 @@ defmodule TimeNist do
     data
   end
 
-  ### API
+  ### PRIVATE
 
   defp connect(host) do
     :gen_tcp.connect(host |> to_charlist(), 13, [:binary, {:active, false}])
