@@ -23,7 +23,8 @@ defmodule TimeNist.MixProject do
   defp deps do
     [
       {:timex, "~> 3.1"},
-      {:mox, "~> 0.5", only: :test}
+      {:mox, "~> 0.5", only: :test},
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
