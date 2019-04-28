@@ -1,5 +1,7 @@
 defmodule TimeNist do
+  @behaviour TimeNist.Interface
 
+  @impl TimeNist.Interface
   @spec request(String.t()) :: {:ok, String.t()} | {:error, any()}
   def request(host) do
     {:ok, socket} = connect(host)
@@ -7,6 +9,8 @@ defmodule TimeNist do
     :gen_tcp.close(socket)
     data
   end
+
+  ### API
 
   defp connect(host) do
     :gen_tcp.connect(host |> to_charlist(), 13, [:binary, {:active, false}])

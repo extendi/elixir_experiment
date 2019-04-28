@@ -2,13 +2,15 @@ defmodule TimeNistTest do
   use ExUnit.Case
   doctest TimeNist
 
+  setup :verify_on_exit!
+
   setup do
-    {:ok, pid} = start_supervised(TimeNist.Server)
-    [time_server: pid]
+    {:ok, client} = start_supervised(TimeNist.Client)
+    [time_server: client]
   end
 
-  test "the GenServer is Up & Running", %{time_server: pid} do
-    assert Process.whereis(TimeNist.Server) == pid
+  test "the GenServer is Up & Running", %{time_server: client} do
+    assert Process.whereis(TimeNist.Server) == client
   end
 
   test "Get a daytime" do
