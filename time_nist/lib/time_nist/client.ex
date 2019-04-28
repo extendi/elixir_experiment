@@ -43,7 +43,7 @@ defmodule TimeNist.Client do
   ########### PRIVATE ############
 
   defp refresh do
-    Process.send_after(self(), :refresh, 7_000_000)
+    Process.send_after(self(), :refresh, 7_000)
   end
 
   @spec get_daytime(String.t()) :: String.t()
