@@ -6,6 +6,7 @@ defmodule TimeNist.Client do
   use GenServer
 
   @me __MODULE__
+  @api_nist Application.get_env(:time_nist, :nist_api)
   @target_server "time.nist.gov"
 
   def start_link(_) do
@@ -47,7 +48,7 @@ defmodule TimeNist.Client do
 
   @spec get_daytime(String.t()) :: String.t()
   defp get_daytime(host) do
-    case TimeNist.request(host) do
+    case @api_nist.request(host) do
       {:ok, val} ->
         val
 
