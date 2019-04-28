@@ -7,7 +7,8 @@ ottenere il DAYTIME corrente in formato stringa.
 ## Requirements stringenti sul GenServer (TimeNist.Client):
 - una sola API deve essere esposta
 - è accettabile usare un solo server ("time.nist.gov")
-- non è possibile fare più di una richichesta ogni 7 secondi al server NIST 
+- non è possibile fare più di una richichesta ogni 7 secondi al server NIST
+- il GenServer deve usare la funzione TimeNist.request (tramite l'alias @api_nist fornito), dunque per avere il daytime corrente è sufficiente chiamare la @api_nist.request(...)
 
 ## Il progetto deve:
 
