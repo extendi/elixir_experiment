@@ -28,7 +28,7 @@ defmodule TimeNist.Server do
   ### PRIVATE
 
   def current_daytime() do
-    now = Timex.now
+    now = Timex.now()
     %{year: y, month: m, day: d, hour: h, minute: minutes, second: seconds} = now
     j = Timex.to_julian(now) - 2_400_000
     m_s = m |> to_string |> String.pad_leading(2, "0")

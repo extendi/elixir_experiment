@@ -35,7 +35,7 @@ defmodule TimeNist.Client do
   @impl true
   def handle_info(:refresh, %{server: server} = state) do
     refresh()
-    IO.puts "refresh"
+    IO.puts("refresh")
     {:noreply, %{state | daytime: get_daytime(server)}}
   end
 
@@ -50,6 +50,7 @@ defmodule TimeNist.Client do
     case TimeNist.request(host) do
       {:ok, val} ->
         val
+
       _ ->
         ""
     end

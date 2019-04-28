@@ -20,7 +20,7 @@ defmodule TimeNistTest do
 
   test "Get a valid daytime" do
     date = TimeNist.Server.daytime()
-    now = Time.utc_now
+    now = Time.utc_now()
     assert String.contains?(date, "#{now.hour}:#{now.minute}") == true
   end
 end
