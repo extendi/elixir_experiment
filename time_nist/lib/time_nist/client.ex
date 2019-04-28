@@ -1,4 +1,4 @@
-defmodule TimeNist.Server do
+defmodule TimeNist.Client do
   # Task:
   # - define the state
   # - define the argument of the init & start_link
