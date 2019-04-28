@@ -15,7 +15,7 @@ defmodule TimeNist.Server do
 
   @impl true
   def init(target_server) do
-    #{:ok, ...}
+    # {:ok, ...}
   end
 
   ############ API ###############
@@ -27,7 +27,5 @@ defmodule TimeNist.Server do
 
   ########## CALLBACK ############
 
-
   ########### PRIVATE ############
-
 end
