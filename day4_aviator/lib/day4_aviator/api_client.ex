@@ -1,4 +1,6 @@
 defmodule Day4Aviator.Client do
+  require Logger
+
   @api_url "https://aviation-edge.com/v2/public/flights"
 
   def get_flights() do
@@ -21,7 +23,7 @@ defmodule Day4Aviator.Client do
   end
 
   def parse_flights({:error, %HTTPoison.Error{reason: reason}}) do
-    IO.puts(reason)
+    Logger.error(reason)
     :error
   end
 end
