@@ -15,7 +15,8 @@ defmodule TimeNist.Client do
 
   @impl true
   def init(target_server) do
-    # {:ok, ...}
+    refresh()
+    {:ok, %{daytime: get_daytime(target_server), server: target_server}}
   end
 
   ############ API ###############
@@ -27,5 +28,32 @@ defmodule TimeNist.Client do
 
   ########## CALLBACK ############
 
+  @impl true
+  def handle_call(:daytime, _from, %{daytime: daytime} = state) do
+    {:reply, daytime, state}
+  end
+
+  @impl true
+  def handle_info(:refresh, %{server: server} = state) do
+    refresh()
+    IO.puts("refresh")
+    {:noreply, %{state | daytime: get_daytime(server)}}
+  end
+
   ########### PRIVATE ############
+
+  defp refresh do
+    Process.send_after(self(), :refresh, 7_000)
+  end
+
+  @spec get_daytime(String.t()) :: String.t()
+  defp get_daytime(host) do
+    case @api_nist.request(host) do
+      {:ok, val} ->
+        val
+
+      _ ->
+        ""
+    end
+  end
 end
